@@ -1,7 +1,5 @@
 import logging
 
-from environs import Env
-
 from config import (
     tg_token,
     project_id,
@@ -10,9 +8,6 @@ from config import (
 from tg_bot import TgBot
 
 logger = logging.getLogger('tg_bot')
-
-env = Env()
-env.read_env()
 
 
 def start_bot():
