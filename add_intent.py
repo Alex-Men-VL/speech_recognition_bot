@@ -1,6 +1,7 @@
 import argparse
 import json
 import logging
+import os
 
 from google.api_core.exceptions import BadRequest
 from google.cloud import dialogflow
@@ -14,7 +15,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Add new intent')
     parser.add_argument('--path', '-p',
                         help='Enter the path to the json file',
-                        default='questions.json')
+                        default=os.path.join('files', 'questions.json'))
     return parser.parse_args()
 
 
