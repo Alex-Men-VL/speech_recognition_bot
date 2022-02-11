@@ -1,7 +1,5 @@
 from google.cloud import dialogflow
 
-from config import project_id
-
 
 def detect_intent_texts(project_id, session_id, text, language_code):
     session_client = dialogflow.SessionsClient()
@@ -19,7 +17,7 @@ def detect_intent_texts(project_id, session_id, text, language_code):
     return response.query_result.fulfillment_text
 
 
-def create_intent(display_name, intent_options):
+def create_intent(project_id, display_name, intent_options):
     training_phrases_parts = intent_options['questions']
     message_texts = [intent_options['answer']]
 

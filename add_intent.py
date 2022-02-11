@@ -5,6 +5,7 @@ import os
 
 from google.api_core.exceptions import BadRequest
 
+from config import project_id
 from dialogflow_utils import create_intent
 
 logger = logging.getLogger(__file__)
@@ -29,7 +30,7 @@ def main():
 
     for display_name, intent_options in intents.items():
         try:
-            create_intent(display_name, intent_options)
+            create_intent(project_id, display_name, intent_options)
         except BadRequest as err:
             logger.error(
                 f"Intent with the name '{display_name}' not loaded.\n{err}\n"
