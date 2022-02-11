@@ -52,7 +52,7 @@ class TgBot(Bot):
         received_message = update.message.text
 
         message = detect_intent_texts(self.project_id, chat_id, received_message, self.language_code)
-        update.message.reply_text(message)
+        update.message.reply_text(message.fulfillment_text)
 
     @staticmethod
     def handle_start_message(update: Update, _):
@@ -73,8 +73,9 @@ class VkBot(Bot):
         received_message = event.text
         message = detect_intent_texts(self.project_id, user_id, received_message, self.language_code)
 
-        self.bot.messages.send(
-            user_id=user_id,
-            message=message,
-            random_id=random.randint(1, 1000)
-        )
+        if not message.intent.is_fallback:
+            self.bot.messages.send(
+                user_id=user_id,
+                message=message.fulfillment_text,
+                random_id=random.randint(1, 1000)
+            )
