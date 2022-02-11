@@ -7,7 +7,7 @@ from google.cloud import dialogflow
 
 from config import project_id
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__file__)
 
 
 def parse_arguments():

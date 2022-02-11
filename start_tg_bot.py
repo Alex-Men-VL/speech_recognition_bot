@@ -8,7 +8,7 @@ from config import (
 )
 from tg_bot import TgBot, TelegramLogsHandler
 
-logger = logging.getLogger('tg_bot')
+logger = logging.getLogger(__file__)
 
 
 def start_tg_bot():
