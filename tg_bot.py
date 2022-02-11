@@ -1,7 +1,7 @@
 import logging
 
 from google.cloud import dialogflow
-from telegram import Update, Bot
+from telegram import Update
 from telegram.ext import (
     Updater,
     CommandHandler,
