@@ -1,19 +1,19 @@
 import logging
 
+from bots import TgBot, TelegramLogsHandler
 from config import (
     tg_token,
     tg_dev_chat_id,
     project_id,
     language_code,
 )
-from tg_bot import TgBot, TelegramLogsHandler
 
 logger = logging.getLogger(__file__)
 
 
 def start_tg_bot():
     bot = TgBot(
-        tg_token=tg_token,
+        token=tg_token,
         project_id=project_id,
         language_code=language_code
     )

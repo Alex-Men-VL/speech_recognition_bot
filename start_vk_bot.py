@@ -1,8 +1,13 @@
 import logging
 
-from config import vk_token
-from vk_bot import VkBot
+from vk_api.longpoll import VkEventType
 
+from bots import VkBot
+from config import (
+    vk_token,
+    project_id,
+    language_code
+)
 
 logger = logging.getLogger(__file__)
 
@@ -11,10 +16,15 @@ def main():
     logging.basicConfig(level=logging.INFO)
 
     bot = VkBot(
-        vk_token=vk_token
+        token=vk_token,
+        project_id=project_id,
+        language_code=language_code
     )
+    logger.info('VK bot is running')
+
     for event in bot.longpoll.listen():
-        bot.handle_message(event)
+        if event.type == VkEventType.MESSAGE_NEW and event.to_me:
+            bot.handle_message(event)
 
 
 if __name__ == '__main__':
