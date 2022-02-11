@@ -12,9 +12,7 @@ from config import (
 logger = logging.getLogger(__file__)
 
 
-def main():
-    logging.basicConfig(level=logging.INFO)
-
+def start_vk_bot():
     bot = VkBot(
         token=vk_token,
         project_id=project_id,
@@ -25,6 +23,15 @@ def main():
     for event in bot.longpoll.listen():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me:
             bot.handle_message(event)
+
+
+def main():
+    logging.basicConfig(level=logging.INFO)
+
+    try:
+        start_vk_bot()
+    except Exception as err:
+        logger.error(err)
 
 
 if __name__ == '__main__':
