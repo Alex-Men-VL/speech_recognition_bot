@@ -71,7 +71,7 @@ $ python3 add_intent.py --path <путь к JSON-файлу>
 
 - `TELEGRAM_BOT_TOKEN` - токен телеграм бота;
   - Чтобы его получить, напишите в Telegram специальному боту: [BotFather](https://telegram.me/BotFather)
-- `PROJECT_ID` - id проект в `Google Cloud Console`.
+- `PROJECT_ID` - id проект в `Google Cloud Console`;
 
 <details>
   <summary markdown="span">Как добавить интеграцию с DialogFlow</summary>
@@ -84,9 +84,9 @@ $ python3 add_intent.py --path <путь к JSON-файлу>
     - Русский язык, иначе бот не будет понимать ваши фразы
 </details>
 
-- `LANGUAGE_CODE` - код языка, выбранный при создании проекта на [DialogFlow](https://dialogflow.cloud.google.com/#/login). По умолчанию `ru`
-- `GOOGLE_APPLICATION_CREDENTIALS` - путь до файла с ключами. [Создание JSON-ключа](https://cloud.google.com/docs/authentication/getting-started)
-- `VK_BOT_TOKEN` - токен группы во Вконтакте
+- `LANGUAGE_CODE` - код языка, выбранный при создании проекта на [DialogFlow](https://dialogflow.cloud.google.com/#/login). По умолчанию `ru`;
+- `GOOGLE_APPLICATION_CREDENTIALS` - путь до файла с ключами. [Создание JSON-ключа](https://cloud.google.com/docs/authentication/getting-starяed);
+- `VK_BOT_TOKEN` - токен группы во Вконтакте;
 
 <details>
   <summary markdown="span">Как получить токен группы</summary>
@@ -96,7 +96,9 @@ $ python3 add_intent.py --path <путь к JSON-файлу>
   ![Токен группы в VK](.github/vk_group_token.png)
 </details>
 
-- `TG_DEV_CHAT_ID` - id пользователя в телеграм, кому будут приходить сообщения с ошибками.
+- `TG_DEV_CHAT_ID` - id пользователя в телеграм, кому будут приходить сообщения с ошибками;
+- `TELEGRAM_DEV_BOT_TOKEN` - токен телеграм бота, который будет присылать сообщения с логами пользователю, 
+id которого указан в переменной `TG_DEV_CHAT_ID`.
 
 ## Пример работы ботов
 
