@@ -3,12 +3,15 @@ import json
 import logging
 import os
 
+from environs import Env
 from google.api_core.exceptions import BadRequest
 
-from config import project_id
 from dialogflow_utils import create_intent
 
 logger = logging.getLogger(__file__)
+
+env = Env()
+env.read_env()
 
 
 def parse_arguments():
@@ -21,6 +24,8 @@ def parse_arguments():
 
 def main():
     logging.basicConfig(level=logging.INFO)
+
+    project_id = env.str('PROJECT_ID')
 
     args = parse_arguments()
     json_path = args.path
